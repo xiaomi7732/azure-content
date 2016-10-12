@@ -24,6 +24,7 @@ The  process of installing .NET on your web and worker roles involves including 
 
 ## Add the .NET installer to your project
 - Download the the web installer for the .NET framework you want to install
+	- [.NET 4.6.2 Web Installer](https://www.microsoft.com/en-us/download/details.aspx?id=53345)
 	- [.NET 4.6.1 Web Installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 - For a Web Role
   1. In **Solution Explorer**, under In **Roles** in the cloud service project right click on your role and select **Add>New Folder**. Create a folder named *bin*
@@ -33,7 +34,7 @@ The  process of installing .NET on your web and worker roles involves including 
 
 Files added this way to the Role Content Folder will automatically be added to the cloud service package and deployed to a consistent location on the virtual machine. Repeat this process for all web and worker roles in your Cloud Service so all roles have a copy of the installer.
 
-> [AZURE.NOTE] You should install .NET 4.6.1 on your Cloud Service role even if your application targets .NET 4.6. The Azure Guest OS includes updates [3098779](https://support.microsoft.com/kb/3098779) and [3097997](https://support.microsoft.com/kb/3097997). Installing .NET 4.6 on top of these updates may cause issues when running your .NET applications, so you should directly install .NET 4.6.1 instead of .NET 4.6. For more information, see [KB 3118750](https://support.microsoft.com/kb/3118750).
+> [AZURE.NOTE] You should at least install .NET 4.6.1 on your Cloud Service role even if your application targets .NET 4.6. The Azure Guest OS includes updates [3098779](https://support.microsoft.com/kb/3098779) and [3097997](https://support.microsoft.com/kb/3097997). Installing .NET 4.6 on top of these updates may cause issues when running your .NET applications, so you should directly install .NET 4.6.1 instead of .NET 4.6. For more information, see [KB 3118750](https://support.microsoft.com/kb/3118750).
 
 ![Role Contents with installer files][1]
 
@@ -76,7 +77,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
 	REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
 	REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-	set netfx="NDP461"
+	set netfx="NDP462"
 	
 	REM ***** Set script start timestamp *****
 	set timehour=%time:~0,2%
